@@ -24,9 +24,9 @@ before the runs it judges.
 | `p3_decoder_align.py` | Decoder alignment: `gen` latents, `train` arms (a/b/c, `--anchor gan` for iteration 2), `eval`, `table` (pass test) |
 | `p3_kid_diff.py` | Paired-subset KID difference between a decoder arm and the unchanged decoder, with a 95 % range |
 | `p3_latent_transport.py` | Latent-side baselines: `diag` (variance ratio per eigen-decile), `apply` (`base`, `iso`, `l0`, `null`), `table` |
+| `p3_minority.py` | Minority score of Um et al. adapted to the latent flow model, and its relation to complexity (Table 3) |
+| `p3_fix.py` | Generator-side arms: classifier-free guidance on the complexity quintile or on the minority-score quintile, and oversampling of complex training images (Table 4) |
 | `make_p3_figs.py` | Figures of the paper from the result files |
-
-<!-- TODO (Praful): add the script used for the generator-side arms (CFG on h, CFG on the minority score, oversampling) -->
 
 ## Requirements
 
@@ -66,7 +66,9 @@ python p3_decoder_align.py eval  --dataset cifar10 --root <root> --tag D_strong_
 python p3_kid_diff.py --dataset cifar10 --root <root> --tag D_strong_gan_v2
 python p3_decoder_align.py table --dataset cifar10 --root <root> --tag D_strong_gan_v2
 
-# 4. latent-side baselines (decoder unchanged)
+# 4. minority score and generator-side arms: see the docstrings of p3_minority.py and p3_fix.py for the commands
+
+# 5. latent-side baselines (decoder unchanged)
 python p3_latent_transport.py diag  --dataset cifar10 --root <root> --tag D_strong_gan_v2
 python p3_latent_transport.py apply --dataset cifar10 --root <root> --tag D_strong_gan_v2 --arm iso
 python p3_latent_transport.py table --dataset cifar10 --root <root> --tag D_strong_gan_v2
