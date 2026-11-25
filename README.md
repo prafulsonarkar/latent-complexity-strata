@@ -27,7 +27,7 @@ before the runs it judges.
 | `p3_minority.py` | Minority score of Um et al. adapted to the latent flow model, and its relation to complexity (Table 3) |
 | `p3_fix.py` | Generator-side arms: classifier-free guidance on the complexity quintile or on the minority-score quintile, and oversampling of complex training images (Table 4) |
 | `make_p3_figs.py` | Figures of the paper from the result files |
-|spectral_rd_vae_test.py | helper functions used by nested_vae_spectral.py.|
+| `spectral_rd_vae_test.py` | helper functions used by nested_vae_spectral.py.|
 ## Requirements
 
 Python 3.12, PyTorch with CUDA (all results were obtained on one 8 GB Quadro RTX 4000), and:
